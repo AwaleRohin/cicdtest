@@ -11,8 +11,8 @@ phases:
       - echo Build started on `date`
       - echo Logging in to Amazon ECR...
       - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
-      - $(aws ecr ls)
-      - docker tag helloworld:latest 031342435657.dkr.ecr.ap-south-1.amazonaws.com/cicdtest:latest      
+      - docker tag helloworld:latest 031342435657.dkr.ecr.ap-south-1.amazonaws.com/cicdtest:latest    
+      - docker images  
   post_build:
     commands:
       - echo Build completed on `date`
