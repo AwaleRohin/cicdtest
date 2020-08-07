@@ -3,21 +3,20 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      #- echo Building the Docker image...           
-      #- docker build -t helloworld .
-      #- docker images
+      - echo Building the Docker image...           
+      - docker build -t helloworld .
+      - docker images
   build:
     commands:
-      #- echo Build started on `date`
-      #- echo Logging in to Amazon ECR...
-      #- $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
-      #- docker tag helloworld:latest 031342435657.dkr.ecr.ap-south-1.amazonaws.com/cicdtest:latest    
-      #- docker images  
+      - echo Build started on `date`
+      - echo Logging in to Amazon ECR...
+      - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+      - docker tag helloworld:latest 031342435657.dkr.ecr.ap-south-1.amazonaws.com/cicdtest:latest    
+      - docker images  
   post_build:
     commands:
-      #- echo Build completed on `date`
-      #- echo Pushing the Docker image...
-      #- docker push 031342435657.dkr.ecr.ap-south-1.amazonaws.com/cicdtest:latest
-      - aws s3 ls
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push 031342435657.dkr.ecr.ap-south-1.amazonaws.com/cicdtest:latest
       - aws ecs describe-services --services CICDtest-gwell-service
       - aws ecs update-service --cluster Gwell-CICD --service CICDtest-gwell-service --force-new-deployment
