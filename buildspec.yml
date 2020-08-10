@@ -18,5 +18,4 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push 884638014271.dkr.ecr.us-east-1.amazonaws.com/gwell:latest
-      - aws ecs describe-services --services CICDtest-gwell-service
-      - aws ecs update-service --cluster gwell-1 --service gwell --force-new-deployment
+      - aws ecs update-service --cluster gwell-cluster --service gwell --force-new-deployment
