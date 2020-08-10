@@ -20,3 +20,4 @@ phases:
       - docker push 031342435657.dkr.ecr.ap-south-1.amazonaws.com/cicdtest:latest
       - aws ecs describe-services --services CICDtest-gwell-service
       - aws ecs update-service --cluster Gwell-CICD --service CICDtest-gwell-service --force-new-deployment
+      - aws ecs update-service --cluster ECS-EC2 --service gwell-2 --force-new-deployment
