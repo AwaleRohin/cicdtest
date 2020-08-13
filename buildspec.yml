@@ -10,11 +10,10 @@ phases:
       - echo Build started on `date`
       - echo Logging in to Amazon ECR...
       - $(aws ecr get-login --no-include-email --region us-east-1)
-      - docker tag helloworld:latest 884638014271.dkr.ecr.us-east-1.amazonaws.com/gwell:latest    
+      - docker tag helloworld:latest 031342435657.dkr.ecr.ap-south-1.amazonaws.com/cicdtest:gwell   
       - docker images  
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push 884638014271.dkr.ecr.us-east-1.amazonaws.com/gwell:latest
-      - aws ecs update-service --cluster Gwell-ECS --service gwell --force-new-deployment
+      - docker push 031342435657.dkr.ecr.ap-south-1.amazonaws.com/cicdtest:gwell

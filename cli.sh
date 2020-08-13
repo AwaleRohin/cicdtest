@@ -1,0 +1,1 @@
+aws codepipeline update-pipeline --cli-input-json file://gwell-clinical.json --profile gwell --region us-east-1
