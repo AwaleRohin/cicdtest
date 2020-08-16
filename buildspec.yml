@@ -9,7 +9,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Logging in to Amazon ECR...
-      - $(aws ecr get-login --no-include-email --region us-east-1)
+      - $(aws ecr get-login --no-include-email --region ap-south-1)
       - docker tag helloworld:latest 031342435657.dkr.ecr.ap-south-1.amazonaws.com/cicdtest:gwell   
       - docker images  
   post_build:
