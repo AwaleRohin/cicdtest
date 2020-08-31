@@ -3,7 +3,9 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - echo Building the Docker image...           
+      - echo Building the Docker image...   
+      - REPOSITORY_URI=031342435657.dkr.ecr.ap-south-1.amazonaws.com/cicdtest
+      - IMAGE_TAG=gwell    
       - docker build -t helloworld .
   build:
     commands:
@@ -17,3 +19,6 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push 031342435657.dkr.ecr.ap-south-1.amazonaws.com/cicdtest:gwell
+      - printf '[{"name":"gwell-codedeploy","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG >imagedefinitions.json
+artifacts:
+    files: imagedefinitions.json
