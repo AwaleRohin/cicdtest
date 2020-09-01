@@ -37,7 +37,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "031342435657.dkr.ecr.ap-south-1.amazonaws.com/cicdtest:gwell",
+      "image": "<IMAGE1_NAME>",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
