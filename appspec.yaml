@@ -3,7 +3,7 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: <TASK_DEFINITION>
+        TaskDefinition: "arn:aws:ecs:ap-south-1:031342435657:task-definition/ecs-demo:14"
         LoadBalancerInfo:
           ContainerName: "gwell-codedeploy"
           ContainerPort: 3000
