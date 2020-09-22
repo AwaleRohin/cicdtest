@@ -5,20 +5,20 @@ phases:
     commands:
       - echo Building the Docker image...   
       - REPOSITORY_URI=031342435657.dkr.ecr.ap-south-1.amazonaws.com/cicdtest
-      - IMAGE_TAG=gwell    
+      - IMAGE_TAG=demo    
       - docker build -t helloworld .
   build:
     commands:
       - echo Build started on `date`
       - echo Logging in to Amazon ECR...
       - $(aws ecr get-login --no-include-email --region ap-south-1)
-      - docker tag helloworld:latest 031342435657.dkr.ecr.ap-south-1.amazonaws.com/cicdtest:gwell   
+      - docker tag helloworld:latest 031342435657.dkr.ecr.ap-south-1.amazonaws.com/awsworkshop:demo   
       - docker images  
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push 031342435657.dkr.ecr.ap-south-1.amazonaws.com/cicdtest:gwell
-      - printf '[{"name":"gwell-codedeploy","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG >imagedefinitions.json
+      - docker push 031342435657.dkr.ecr.ap-south-1.amazonaws.com/awsworkshop:demo
+      - printf '[{"name":"app","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG >imagedefinitions.json
 artifacts:
     files: imagedefinitions.json
