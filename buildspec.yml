@@ -4,7 +4,7 @@ phases:
   pre_build:
     commands:
       - echo Building the Docker image...   
-      - REPOSITORY_URI=031342435657.dkr.ecr.ap-south-1.amazonaws.com/cicdtest
+      - REPOSITORY_URI=031342435657.dkr.ecr.ap-south-1.amazonaws.com/awsworkshop
       - IMAGE_TAG=demo    
       - docker build -t helloworld .
   build:
